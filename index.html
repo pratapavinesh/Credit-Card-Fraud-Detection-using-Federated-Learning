@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection using Federated Learning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .center {
+            text-align: center;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="center">
+    <h1>Credit Card Fraud Detection using Federated Learning</h1>
+</div>
+
+<div class="center">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig4-3.png" alt="Project Logo" width="400"/>
+</div>
+
+<h2 class="center">Project Overview</h2>
+<p>This project aims to enhance credit card fraud detection using federated learning, a decentralized approach to machine learning. By leveraging edge computing and advanced algorithms like Federated Averaging (FedAvg) and Synthetic Minority Oversampling Technique (SMOTE), we optimize the detection of fraudulent transactions while maintaining data privacy.</p>
+
+<h2 class="center">Implementation Steps</h2>
+
+<h3>1. Banks Grouping</h3>
+
+<h4>1.1 PSO Algorithm for Bank-Server Assignment</h4>
+<ul>
+    <li><strong>Objective:</strong> Assign 600 bank nodes to 90 server nodes, ensuring communication within a 1000-unit range.</li>
+    <li><strong>Visualization:</strong> Final assignments of bank nodes to servers are visualized to verify the algorithm's efficacy.</li>
+</ul>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig4-1.png" alt="Optimal Assignment of Bank to Server" width="600"/>
+</div>
+
+<h3>2. Implementing SMOTE in Credit Card Fraud Detection</h3>
+
+<h4>2.1 Preprocessing Steps</h4>
+<ul>
+    <li><strong>Data Cleaning:</strong> Handle missing values and outliers.</li>
+    <li><strong>Feature Selection:</strong> Identify relevant features influencing fraud prediction.</li>
+    <li><strong>Normalization:</strong> Scale features to standardize the data.</li>
+</ul>
+
+<h4>2.2 Application of SMOTE</h4>
+<ul>
+    <li><strong>Parameter Tuning:</strong> Choose the number of nearest neighbours (k) for synthetic sample generation.</li>
+    <li><strong>Synthetic Sample Generation:</strong> Apply SMOTE to the minority class for balanced class distribution.</li>
+</ul>
+
+<h3>3. Multilayer Perceptron (MLP)</h3>
+
+<h4>3.1 Model Configuration</h4>
+<ul>
+    <li><strong>Input Layer:</strong> Neurons correspond to dataset features.</li>
+    <li><strong>Hidden Layers:</strong> 64 and 32 neurons in the first and second hidden layers, respectively.</li>
+    <li><strong>Output Layer:</strong> Single neuron with a sigmoid activation function for binary classification.</li>
+    <li><strong>Activation Function:</strong> ReLU for hidden layers, sigmoid for the output layer.</li>
+</ul>
+
+<h4>3.2 Training Process</h4>
+<ul>
+    <li><strong>Optimization Algorithm:</strong> 'adam' optimizer with binary cross-entropy loss.</li>
+    <li><strong>Iterations:</strong> Predefined number of iterations (e.g., 100 for demonstration).</li>
+</ul>
+
+<h4>3.3 Model Evaluation</h4>
+<ul>
+    <li><strong>Metrics:</strong> Accuracy, precision, recall, and AUC-ROC.</li>
+</ul>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig4-2.png" alt="MLP Architecture" width="600"/>
+</div>
+
+<h3>4. Federated Averaging</h3>
+
+<h4>4.1 Aggregation at the Edge Node Level</h4>
+<ul>
+    <li><strong>Process:</strong> Aggregate model updates from bank branches, normalize weighted sums, and update local models.</li>
+</ul>
+
+<h4>4.2 Aggregation at the Central Server Level</h4>
+<ul>
+    <li><strong>Process:</strong> Aggregate updates from edge nodes, normalize weighted sums, and update the global model.</li>
+</ul>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig4-3.png" alt="Federated Learning Architecture" width="600"/>
+</div>
+
+<h2 class="center">Results</h2>
+
+<h3>5.1 Banks Grouping Performance</h3>
+<ul>
+    <li><strong>Evaluation:</strong> PSO algorithm evaluated against GA and Jaya Algorithm for cost function minimization and load balance.</li>
+    <li><strong>Visualization:</strong> Graphs comparing the convergence of different algorithms.</li>
+</ul>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig5-1.png" alt="PSO Performance" width="600"/>
+</div>
+
+<h3>5.2 Performance Evaluation with SMOTE</h3>
+<ul>
+    <li><strong>Evaluation:</strong> Comparison of models trained on original vs. SMOTE-enhanced datasets.</li>
+    <li><strong>Visualization:</strong> Performance metrics and ROC curve improvements.</li>
+</ul>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig5-2.png" alt="SMOTE Performance" width="600"/>
+</div>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig5-2-1.png" alt="SMOTE Performance" width="600"/>
+</div>
+
+<h3>5.3 MLP vs Decision Tree</h3>
+<ul>
+    <li><strong>Outcome:</strong> MLP outperforms the decision tree model for fraud detection.</li>
+</ul>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig6-1.png" alt="MLP Performance" width="600"/>
+</div>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig6-2.png" alt="DL Performance" width="600"/>
+</div>
+
+<h3>5.4 Federated Learning Performance</h3>
+<ul>
+    <li><strong>Metrics:</strong> Accuracy: 0.8784, Precision: 0.8618, Recall: 0.9010, F1 Score: 0.8810</li>
+</ul>
+
+<div class="image-container">
+    <img src="https://raw.githubusercontent.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning/main/images/Fig7-1.png" alt="FL Performance" width="600"/>
+</div>
+
+<h2 class="center">Conclusion</h2>
+<p>Our project demonstrates the potential of federated learning combined with edge computing and advanced machine learning techniques to enhance credit card fraud detection while preserving data privacy. The integration of SMOTE further improves model performance, addressing class imbalance issues. This work lays the foundation for future research in privacy-preserving machine learning methodologies.</p>
+
+<h2 class="center">Technologies Used</h2>
+<ul>
+    <li><strong>Algorithms:</strong> Federated Averaging (FedAvg), Improved Particle Swarm Optimization (IPSO), SMOTE</li>
+    <li><strong>Machine Learning Models:</strong> Multilayer Perceptron (MLP)</li>
+    <li><strong>Tools:</strong> Python, TensorFlow, scikit-learn</li>
+    <li><strong>Version Control:</strong> GitHub</li>
+</ul>
+
+<h2 class="center">Project Repository</h2>
+<p class="center">GitHub: <a href="https://github.com/pratapavinesh/Credit-Card-Fraud-Detection-using-Federated-Learning">Project Repository</a></p>
+
+<h2 class="center">License</h2>
+<p class="center">Distributed under
